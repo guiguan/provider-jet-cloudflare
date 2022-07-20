@@ -4,7 +4,7 @@
 PROJECT_NAME := provider-jet-cloudflare
 PROJECT_REPO := github.com/guiguan/$(PROJECT_NAME)
 
-export TERRAFORM_VERSION := 1.1.6
+export TERRAFORM_VERSION := 1.2.5
 
 export TERRAFORM_PROVIDER_SOURCE := cloudflare/cloudflare
 export TERRAFORM_PROVIDER_VERSION := 3.19.0

@@ -3,4 +3,23 @@ kind: Script
 metadata:
   name: hello-script
 spec:
+  providerConfigRef:
+    name: cloudflare-provider
   forProvider:
+    name: hello-script-cp
+    content: |-
+      addEventListener('fetch', event => {
+        const data = {
+          hello: 'world with Crossplane',
+        };
+
+        const json = JSON.stringify(data, null, 2);
+
+        return event.respondWith(
+          new Response(json, {
+            headers: {
+              'content-type': 'application/json;charset=UTF-8',
+            },
+          })
+        );
+      });

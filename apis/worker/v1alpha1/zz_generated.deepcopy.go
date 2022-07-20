@@ -22,6 +22,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/crossplane/crossplane-runtime/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -346,6 +347,16 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ScriptNameRef != nil {
+		in, out := &in.ScriptNameRef, &out.ScriptNameRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.ScriptNameSelector != nil {
+		in, out := &in.ScriptNameSelector, &out.ScriptNameSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.ZoneID != nil {
 		in, out := &in.ZoneID, &out.ZoneID
 		*out = new(string)
@@ -490,6 +501,11 @@ func (in *ScriptParameters) DeepCopyInto(out *ScriptParameters) {
 		for i := range *in {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
+	}
+	if in.Name != nil {
+		in, out := &in.Name, &out.Name
+		*out = new(string)
+		**out = **in
 	}
 	if in.PlainTextBinding != nil {
 		in, out := &in.PlainTextBinding, &out.PlainTextBinding

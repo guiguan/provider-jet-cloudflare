@@ -34,8 +34,15 @@ type RouteParameters struct {
 	// +kubebuilder:validation:Required
 	Pattern *string `json:"pattern" tf:"pattern,omitempty"`
 
+	// +crossplane:generate:reference:type=Script
 	// +kubebuilder:validation:Optional
 	ScriptName *string `json:"scriptName,omitempty" tf:"script_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ScriptNameRef *v1.Reference `json:"scriptNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ScriptNameSelector *v1.Selector `json:"scriptNameSelector,omitempty" tf:"-"`
 
 	// The zone identifier to target for the resource.
 	// +kubebuilder:validation:Required

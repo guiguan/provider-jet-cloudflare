@@ -61,6 +61,9 @@ type ScriptParameters struct {
 	// +kubebuilder:validation:Optional
 	KvNamespaceBinding []KvNamespaceBindingParameters `json:"kvNamespaceBinding,omitempty" tf:"kv_namespace_binding,omitempty"`
 
+	// +kubebuilder:validation:Required
+	Name *string `json:"name" tf:"name,omitempty"`
+
 	// +kubebuilder:validation:Optional
 	PlainTextBinding []PlainTextBindingParameters `json:"plainTextBinding,omitempty" tf:"plain_text_binding,omitempty"`
 

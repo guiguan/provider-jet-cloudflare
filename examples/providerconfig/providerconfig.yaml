@@ -1,11 +1,11 @@
 apiVersion: cloudflare.jet.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
-  name: default
+  name: cloudflare-provider
 spec:
   credentials:
     source: Secret
     secretRef:
-      name: example-creds
+      name: cloudflare-provider
       namespace: crossplane-system
       key: credentials

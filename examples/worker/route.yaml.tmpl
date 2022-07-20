@@ -1,0 +1,12 @@
+apiVersion: worker.cloudflare.jet.crossplane.io/v1alpha1
+kind: Route
+metadata:
+  name: hello-route
+spec:
+  providerConfigRef:
+    name: cloudflare-provider
+  forProvider:
+    zoneId: cloudflare_zone_id
+    pattern: my-domain.com/hello-cp
+    scriptNameRef:
+      name: hello-script
