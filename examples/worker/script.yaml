@@ -1,0 +1,6 @@
+apiVersion: worker.cloudflare.jet.crossplane.io/v1alpha1
+kind: Script
+metadata:
+  name: hello-script
+spec:
+  forProvider:
